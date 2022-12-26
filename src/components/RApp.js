@@ -19,10 +19,12 @@ function App() {
   const [movies, setMovies] = useState([]);
   const [searchValue,setSearchValue]=useState('');
   const [favourites,setFavourites]=useState([]);
-  const [fav,setFav]=useState(false); 
+  const [fav,setFav]=useState(false);
+  
   
   const resetForm=()=>{
     
+
   }
   // const {movieTicket,setMovieTicket}=UseMovieToken();
   
@@ -40,6 +42,29 @@ function App() {
     getMovieRequest(searchValue);
   },[searchValue])
  
+  //-----------------------practice code----------------------
+
+  // function UseMovieToken(){    
+    //   const getMovieToken=()=>{
+      //     const MovieToken=localStorage.getItem('movieToken');
+      //     const userMovieToken=JSON.parse(MovieToken)
+      //     return userMovieToken?.movieToken
+      //   }
+      //   const [movieToken,setmovieToken]=useState(getMovieToken());
+      
+      //   const saveMovieToken=userMovieToken=>{
+        //     localStorage.setItem('movieToken',JSON.stringify(userMovieToken));
+        //     setmovieToken(userMovieToken);
+        //   }
+        
+        //   return{
+          //     setmovieToken:saveMovieToken,movieToken
+  //   }
+    
+  // }
+  
+  //-----------------------practice code----------------------
+
   
   // useEffect(()=>{
   //   const movieFavourites=JSON.parse(
@@ -52,10 +77,16 @@ function App() {
   //     localStorage.setItem('react-movie-app-favourites',JSON.stringify(items));
   //   } 
     
-    const addFavouriteMovie=(movie)=>{      
+    const addFavouriteMovie=(movie)=>{
+      
       const newFavouriteList=[...favourites,movie];
+      // console.log(newFavouriteList.includes(movie.imdbID[0]),"-------Fav--------");
+      // console.log("newfav",newFavouriteList)
+      // console.log("movi",movie)
       setFavourites(newFavouriteList);
       // saveToLocalStorage(newFavouriteList);
+
+
       // if(movie.imdbID)
       // {
       //   setFav(true)
@@ -64,7 +95,15 @@ function App() {
       // }
       // else{
       //   alert("Alredy Added..!!");
-      //     }      
+
+          
+          
+      //     }
+          // setFavourites(newFavouriteList);
+         
+      // console.log(newFavouriteList)
+
+      
     };
     
     const removeFavouritesMovie=(movie)=>{
@@ -72,7 +111,9 @@ function App() {
         (favourite)=>favourite.imdbID!==movie.imdbID
         );
         setFavourites(newFavouriteList);
-      // saveToLocalStorage(newFavouriteList);        
+      // saveToLocalStorage(newFavouriteList);
+
+        
       }
 
       if(!token){
@@ -81,7 +122,18 @@ function App() {
 
       
       return (
-
+        // <div className="wrapper">
+        // <BrowserRouter>
+        //   <Switch>
+        //     <Route path="/dashboard">
+        //       <Dashboard />
+        //     </Route>
+        //     <Route path="/preferences">
+        //       <Preferences />
+        //     </Route>
+        //   </Switch>
+        // </BrowserRouter>
+        //   </div>
         <div className='container-fluid movie-app'>
 
       <BrowserRouter>
@@ -89,11 +141,15 @@ function App() {
         <Route path="/home">
 
         <h1>Search Movies here</h1>
-        <SearchBox searchValue={searchValue} setSearchValue={setSearchValue}/>        
+        <SearchBox searchValue={searchValue} setSearchValue={setSearchValue}/>
+        {/* <button className='btnreset' onClick={() => window.location.reload(false)}>reset</button> */}
         <div><input type='reset' value='Reset Form' onClick={()=>resetForm()}/></div>
           {/* <Dashboard /> */}
+          
+
           <div className='row d-flex align-items-center mt-4 mb-4'>
         <MovieListHeading heading='Movies'/>
+        {/* <SearchBox searchValue={searchValue} setSearchValue={setSearchValue}/> */}
       </div>
       <div className='mainContainer'>
 
@@ -118,9 +174,7 @@ function App() {
         {/* <Route path="/favourite">
           <div className='mainContainer'>
             <div className='row d-flex align-items-center mt-4 mb-4'>
-        <MovieLi
-        +
-        stHeading heading='Favourites'/>
+        <MovieListHeading heading='Favourites'/>
       </div>
 
         <div className='row'>
@@ -135,7 +189,24 @@ function App() {
         </Route> */}
       </Switch>
     </BrowserRouter>
- 
+      {/* <div className='row d-flex align-items-center mt-4 mb-4'>
+        <MovieListHeading heading='Movies'/>
+        <SearchBox searchValue={searchValue} setSearchValue={setSearchValue}/>
+      </div>
+      <div className='row'>
+          <MovieList movies={movies} 
+          favouriteComponent={AddToFavourites}
+          handleFavouritesClick={addFavouriteMovie}
+          />
+      </div>
+      <div className='row d-flex align-items-center mt-4 mb-4'>
+        <MovieListHeading heading='Favourites'/>
+      </div>
+      <div className='row'>
+        <MovieList movies={favourites}
+        handleFavouritesClick={removeFavouritesMovie}
+        favouriteComponent={RemoveFavourites}/>
+      </div> */}
 
     </div>
   );
