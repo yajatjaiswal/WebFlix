@@ -10,11 +10,11 @@ import AddToFavourites from './components/AddToFavourites';
 import Dashboard from './components/Dashboard';
 import Preferences from './components/Preferences';
 import Login2 from './components/Login/Login2';
-import useToken from './components/useToken';
+// import useToken from './components/useToken';
 import RemoveFavourites from './components/RemoveFavourites';
 
 function App() {
-  const {token,setToken}=useToken();
+  // const {token,setToken}=useToken();
   
   const [movies, setMovies] = useState([]);
   const [searchValue,setSearchValue]=useState('');
@@ -86,11 +86,11 @@ function App() {
 
       <BrowserRouter>
       <Switch>
-        <Route path="/home">
+        <Route path="/yajatjaiswal/WebFlix">
 
         <h1>Search Movies here</h1>
         <SearchBox searchValue={searchValue} setSearchValue={setSearchValue}/>        
-        <div><input type='reset' value='Reset Form' onClick={()=>resetForm()}/></div>
+        <div><input type='reset' value='Reset Form' onClick={() => window.location.reload(false)}/></div>
           {/* <Dashboard /> */}
           <div className='row d-flex align-items-center mt-4 mb-4'>
         <MovieListHeading heading='Movies'/>
