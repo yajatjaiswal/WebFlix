@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/yajatjaiswal/WebFlix/static/css/main.993cd0f6.css",
-    "main.js": "/yajatjaiswal/WebFlix/static/js/main.3bcb065b.js",
+    "main.js": "/yajatjaiswal/WebFlix/static/js/main.383c5e97.js",
     "static/js/787.21eb05c8.chunk.js": "/yajatjaiswal/WebFlix/static/js/787.21eb05c8.chunk.js",
     "index.html": "/yajatjaiswal/WebFlix/index.html",
     "main.993cd0f6.css.map": "/yajatjaiswal/WebFlix/static/css/main.993cd0f6.css.map",
-    "main.3bcb065b.js.map": "/yajatjaiswal/WebFlix/static/js/main.3bcb065b.js.map",
+    "main.383c5e97.js.map": "/yajatjaiswal/WebFlix/static/js/main.383c5e97.js.map",
     "787.21eb05c8.chunk.js.map": "/yajatjaiswal/WebFlix/static/js/787.21eb05c8.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.993cd0f6.css",
-    "static/js/main.3bcb065b.js"
+    "static/js/main.383c5e97.js"
   ]
 }
