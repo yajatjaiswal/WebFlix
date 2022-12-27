@@ -74,6 +74,7 @@ function App() {
         setFavourites(newFavouriteList);
       // saveToLocalStorage(newFavouriteList);        
       }
+      
 
       // if(!token){
       //   return <Login2 setToken={setToken}/>
