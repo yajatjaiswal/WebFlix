@@ -1,37 +1,34 @@
-
-import React, { useState } from "react"
-import PropTypes from 'prop-types';
-import './Login.css';
-
+import React, { useState } from "react";
+import PropTypes from "prop-types";
+import "./Login.css";
 
 async function loginUser(credentials) {
-    return fetch('http://localhost:8080/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(credentials)
-    })
-      .then(data => data.json())
-   }
+  return fetch("http://localhost:8080/login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(credentials),
+  }).then((data) => data.json());
+}
 
-export default function Login2({setToken}) {
-    const [username, setUserName] = useState();
-    const [password, setPassword] = useState();
-  let [authMode, setAuthMode] = useState("signin")
+export default function Login2({ setToken }) {
+  const [username, setUserName] = useState();
+  const [password, setPassword] = useState();
+  let [authMode, setAuthMode] = useState("signin");
 
-  const handleSubmit = async e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const token = await loginUser({
       username,
-      password
+      password,
     });
     setToken(token);
-  }
+  };
 
   const changeAuthMode = () => {
-    setAuthMode(authMode === "signin" ? "signup" : "signin")
-  }
+    setAuthMode(authMode === "signin" ? "signup" : "signin");
+  };
 
   if (authMode === "signin") {
     return (
@@ -51,7 +48,7 @@ export default function Login2({setToken}) {
                 type="email"
                 className="form-control mt-1"
                 placeholder="Enter email"
-                onChange={e=>setUserName(e.target.value)}
+                onChange={(e) => setUserName(e.target.value)}
               />
             </div>
             <div className="form-group mt-3">
@@ -60,7 +57,7 @@ export default function Login2({setToken}) {
                 type="password"
                 className="form-control mt-1"
                 placeholder="Enter password"
-                onChange={e=>setPassword(e.target.value)}
+                onChange={(e) => setPassword(e.target.value)}
               />
             </div>
             <div className="d-grid gap-2 mt-3">
@@ -74,7 +71,7 @@ export default function Login2({setToken}) {
           </div>
         </form>
       </div>
-    )
+    );
   }
 
   return (
@@ -123,9 +120,9 @@ export default function Login2({setToken}) {
         </div>
       </form>
     </div>
-  )
+  );
 }
 
 Login2.propTypes = {
-    setToken: PropTypes.func.isRequired
-  };
+  setToken: PropTypes.func.isRequired,
+};
